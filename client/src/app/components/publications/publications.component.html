@@ -1,33 +1,39 @@
 <div class="container">
-    <app-authors-list (authorSelected)="onSelectAuthor($event)"></app-authors-list>
-    <div class="row " *ngIf="idAuthor">
-      <div class="col-md-6"></div>
-      <div class="col-md-3">
-        <button class="btn btn-lg btn-outline-primary" (click)="sortItems()">Sort by date</button>
+    <div class="row mt-20">
+      <div class="col-md-2">
+        <app-authors-list (authorSelected)="onSelectAuthor($event)"></app-authors-list>
       </div>
-      <div class="col-md-3">
-          <button class="btn btn-lg btn-outline-primary" (click)="open(contentPulications)">Add Publication</button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="alert alert-primary" role="alert" *ngIf="idAuthor && !publications.length">
-        This author does not have any publication!
-      </div>
-        <div class="card" *ngFor="let item of publications">
-            <div class="card-header">
-              {{item.created}}
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{item.title}}</h5>
-              <p class="card-text">{{item.body}}</p>
-              <a class="btn btn-danger" (click)="delete(item)">Delete</a>
-            </div>
+      <div class="col-md-10">
+        <div class="row " *ngIf="idAuthor">
+          <div class="col-md-6"></div>
+          <div class="col-md-3">
+            <button class="btn btn-lg btn-outline-primary" (click)="sortItems()">Sort by date</button>
           </div>
-    </div>
-    <div class="row " *ngIf="idAuthor">
-      <div class="col-md-9"></div>
-      <div class="col-md-3">
-          <label>Total {{count}}</label>
+          <div class="col-md-3">
+              <button class="btn btn-lg btn-outline-primary" (click)="open(contentPulications)">Add Publication</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="alert alert-primary" role="alert" *ngIf="idAuthor && !publications.length">
+            This author does not have any publication!
+          </div>
+            <div class="card" *ngFor="let item of publications">
+                <div class="card-header">
+                  {{item.created}}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{item.title}}</h5>
+                  <p class="card-text">{{item.body}}</p>
+                  <a class="btn btn-danger" (click)="delete(item)">Delete</a>
+                </div>
+              </div>
+        </div>
+        <div class="row " *ngIf="idAuthor">
+          <div class="col-md-9"></div>
+          <div class="col-md-3">
+              <label>Total {{count}}</label>
+          </div>
+        </div>
       </div>
     </div>
 </div>
